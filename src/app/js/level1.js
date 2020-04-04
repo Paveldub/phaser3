@@ -1,4 +1,5 @@
 import boy from '../../assets/boy.png'
+import { game } from '../../index'
 
 export default class Level1 extends Phaser.Scene {
   constructor () {
@@ -31,5 +32,11 @@ export default class Level1 extends Phaser.Scene {
     this.boy.play('boy')
   }
   // constant running loop
-  update () {}
+  update () {
+    this.boy.x += 2
+
+    if (this.boy.x > game.config.width) {
+      this.boy.x = 0
+    }
+  }
 }

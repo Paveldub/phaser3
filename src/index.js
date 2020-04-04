@@ -2,7 +2,9 @@ import Phaser from 'phaser'
 // import Intro from './app/js/intro';
 import Level1 from './app/js/level1'
 
-var config = {
+export let game
+
+export var config = {
   type: Phaser.AUTO,
   width: 480,
   height: 640,
@@ -24,4 +26,4 @@ var config = {
   scene: [Level1]
 }
 
-var game = new Phaser.Game(config)
+game = new Phaser.Game(config)
