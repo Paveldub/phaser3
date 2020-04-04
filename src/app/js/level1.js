@@ -1,4 +1,7 @@
-import boy from '../../assets/boy.png'
+// import boy from '../../assets/boy.png'
+// import face from '../../assets/face.png'
+import meow from '../../audio/meow.mp3'
+import meow1 from '../../audio/meow.ogg'
 import { game } from '../../index'
 
 export default class Level1 extends Phaser.Scene {
@@ -10,40 +13,15 @@ export default class Level1 extends Phaser.Scene {
 
   // load our images or sounds
   preload () {
-    this.load.spritesheet('boy', boy, {
-      frameWidth: 120,
-      frameHeight: 200
-    })
+    this.load.audio('cat', [meow, meow1])
   }
 
   // define our objects
   create () {
-    this.boy = this.add.sprite(150, 150, 'boy')
-
-    let boyFrame = this.anims.generateFrameNumbers('boy')
-
-    this.anims.create({
-      key: 'boy',
-      frames: boyFrame,
-      frameRate: 16,
-      repeat: -1
-    })
-
-    this.tweens.add({
-      targets: this.boy,
-      duration: 1000,
-      x: game.config.width
-      // y: 0
-    })
-
-    this.boy.play('boy')
+    this.catSound = this.sound.add('cat')
+    this.catSound.play()
   }
 
   // constant running loop
-  update () {
-    // this.boy.x += 2
-    // if (this.boy.x > game.config.width) {
-    //   this.boy.x = 0
-    // }
-  }
+  update () {}
 }
