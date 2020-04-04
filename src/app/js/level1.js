@@ -1,4 +1,4 @@
-import face from '../../assets/face.png'
+import boy from '../../assets/boy.png'
 
 export default class Level1 extends Phaser.Scene {
   constructor () {
@@ -9,13 +9,26 @@ export default class Level1 extends Phaser.Scene {
 
   // load our images or sounds
   preload () {
-    this.load.image('face', face)
+    this.load.spritesheet('boy', boy, {
+      frameWidth: 120,
+      frameHeight: 200
+    })
   }
 
   // define our objects
   create () {
-    this.face = this.add.image(100, 150, 'face')
-    this.face.alpha = 0.5
+    this.boy = this.add.sprite(150, 150, 'boy')
+
+    let boyFrame = this.anims.generateFrameNumbers('boy')
+
+    this.anims.create({
+      key: 'boy',
+      frames: boyFrame,
+      frameRate: 16,
+      repeat: -1
+    })
+
+    this.boy.play('boy')
   }
   // constant running loop
   update () {}
