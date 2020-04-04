@@ -29,14 +29,21 @@ export default class Level1 extends Phaser.Scene {
       repeat: -1
     })
 
+    this.tweens.add({
+      targets: this.boy,
+      duration: 1000,
+      x: game.config.width
+      // y: 0
+    })
+
     this.boy.play('boy')
   }
+
   // constant running loop
   update () {
-    this.boy.x += 2
-
-    if (this.boy.x > game.config.width) {
-      this.boy.x = 0
-    }
+    // this.boy.x += 2
+    // if (this.boy.x > game.config.width) {
+    //   this.boy.x = 0
+    // }
   }
 }

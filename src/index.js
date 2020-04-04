@@ -4,7 +4,7 @@ import Level1 from './app/js/level1'
 
 export let game
 
-export var config = {
+var config = {
   type: Phaser.AUTO,
   width: 480,
   height: 640,
